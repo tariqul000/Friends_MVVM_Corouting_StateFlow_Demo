@@ -34,8 +34,8 @@ class UserDetailsViewFragment : Fragment(R.layout.fragment_user_details_view){
         binding.email.setOnClickListener {
 
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("mailto:" + args.userData.email))
-            intent.putExtra(Intent.EXTRA_SUBJECT, "iOS developer")
-            intent.putExtra(Intent.EXTRA_TEXT, "dear sit please check my resium")
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Android Developer interview")
+            intent.putExtra(Intent.EXTRA_TEXT, "Dear sir, please check my resume")
             startActivity(intent)
         }
         binding.cellphone.text = args.userData.cell
