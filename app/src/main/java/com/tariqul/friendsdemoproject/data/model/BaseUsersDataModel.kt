@@ -1,14 +1,15 @@
 package com.tariqul.friendsdemoproject.data.model
 
 import com.google.gson.annotations.SerializedName
+import java.io.Serializable
 
 
 data class BaseUsersDataModel(
     @SerializedName("results")
     var result: List<UsersDataModel>
-)
+): Serializable
 
-data class UsersDataModel(
+data class UsersDataModel (
     @SerializedName("gender")
     var gender: String,
     @SerializedName("name")
@@ -23,7 +24,7 @@ data class UsersDataModel(
     var cell: String,
     @SerializedName("picture")
     var picture: Picture,
-)
+) : Serializable
 
 
 data class Name(
@@ -32,8 +33,8 @@ data class Name(
     @SerializedName("first")
     val first: String,
     @SerializedName("last")
-    val last: String
-)
+    val last: String,
+): Serializable
 
 data class Location(
 
@@ -43,7 +44,7 @@ data class Location(
     val state: String,
     @SerializedName("country")
     val country: String
-)
+): Serializable
 
 data class Picture(
     @SerializedName("medium")
@@ -52,4 +53,4 @@ data class Picture(
     val large: String,
     @SerializedName("thumbnail")
     val thumb: String
-)
+): Serializable

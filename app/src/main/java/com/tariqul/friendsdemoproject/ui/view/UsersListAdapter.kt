@@ -13,7 +13,7 @@ import javax.inject.Inject
 
 
 @FragmentScoped
-class UsersListAdapter @Inject constructor(private val clickListener: ClickListener) :
+class UsersListAdapter @Inject constructor(val clickListener: ClickListener) :
     ListAdapter<UsersDataModel, UsersListAdapter.ViewHolder>(UsersListDiffCallback()) {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)

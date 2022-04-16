@@ -7,7 +7,27 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="com.tariqul.friendsdemoproject.ui.view.UserListFragment"
+        android:name="com.tariqul.friendsdemoproject.ui.view.UserListViewFragment"
         android:label="User List"
-        tools:layout="@layout/fragment_user_list" />
+        tools:layout="@layout/fragment_user_list" >
+        <action
+            android:id="@+id/action_users_to_user_details"
+            app:destination="@id/user_details">
+            <argument
+                android:name="userData"
+                app:argType="com.tariqul.friendsdemoproject.data.model.UsersDataModel"/>
+        </action>
+    </fragment>
+
+    <fragment
+        android:id="@+id/user_details"
+        android:name="com.tariqul.friendsdemoproject.ui.view.UserDetailsViewFragment"
+        android:label="User Details"
+        tools:layout="@layout/fragment_user_details_view">
+        <argument
+            android:name="userData"
+            app:argType="com.tariqul.friendsdemoproject.data.model.UsersDataModel" />
+
+    </fragment>
+
 </navigation>
