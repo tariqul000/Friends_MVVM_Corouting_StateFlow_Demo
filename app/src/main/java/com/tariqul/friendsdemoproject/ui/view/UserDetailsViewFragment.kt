@@ -40,7 +40,9 @@ class UserDetailsViewFragment : Fragment(R.layout.fragment_user_details_view){
         }
         binding.cellphone.text = args.userData.cell
         binding.country.text = args.userData.location.country
-
+        binding.city.text = args.userData.location.city
+        binding.state.text = args.userData.location.state
+        binding.address.text = args.userData.location.street.number + " "+args.userData.location.street.name
     }
 
 }

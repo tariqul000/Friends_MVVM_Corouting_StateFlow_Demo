@@ -43,7 +43,9 @@ data class Location(
     @SerializedName("state")
     val state: String,
     @SerializedName("country")
-    val country: String
+    val country: String,
+    @SerializedName("street")
+    var street: Street,
 ): Serializable
 
 data class Picture(
@@ -53,4 +55,11 @@ data class Picture(
     val large: String,
     @SerializedName("thumbnail")
     val thumb: String
+): Serializable
+
+data class Street(
+    @SerializedName("number")
+    val number: String,
+    @SerializedName("name")
+    val name: String
 ): Serializable
