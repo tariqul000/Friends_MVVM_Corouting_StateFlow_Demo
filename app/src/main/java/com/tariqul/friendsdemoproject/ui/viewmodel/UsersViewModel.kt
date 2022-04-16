@@ -37,15 +37,13 @@ class UsersViewModel
             homeRepository.getUsersData().collect{ resource ->
                 _userFragmentUiState.update {
                     Log.d("Data: ", resource.data.toString())
+                    it.copy(
+                        isLoading = false,
+                        // Log.d("usersDataModel   ", resource.data.toString())
+                        usersDataModel = resource.data?.result ?: emptyList()
 
-                    resource.data?.let { it1 ->
-                        it.copy(
-                            isLoading = false,
-                            // Log.d("usersDataModel   ", resource.data.toString())
-                            usersDataModel = it1.result
+                    )
 
-                        )
-                    }!!
                 }
             }
        }

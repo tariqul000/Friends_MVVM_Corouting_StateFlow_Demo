@@ -28,7 +28,7 @@ class UsersListAdapter @Inject constructor(private val clickListener: ClickListe
         RecyclerView.ViewHolder(binding.root) {
 
         fun bind(item: UsersDataModel, clickListener: ClickListener) {
-            //binding.userData = item
+            binding.userData = item
             binding.executePendingBindings()
             binding.clickListener = clickListener
         }

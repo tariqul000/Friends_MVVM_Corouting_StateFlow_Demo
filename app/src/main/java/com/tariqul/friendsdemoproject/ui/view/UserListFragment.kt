@@ -9,6 +9,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.recyclerview.widget.DividerItemDecoration
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.tariqul.friendsdemoproject.R
 import com.tariqul.friendsdemoproject.databinding.FragmentUserListBinding
@@ -22,7 +23,6 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class UserListFragment : Fragment(R.layout.fragment_user_list){
 
-
     private lateinit var binding: FragmentUserListBinding
     private val viewModel: UsersViewModel by viewModels()
 
@@ -32,11 +32,15 @@ class UserListFragment : Fragment(R.layout.fragment_user_list){
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentUserListBinding.bind(view)
+
         setUI()
 
     }
 
     private fun setUI(){
+        binding.progressBar.visibility = View.VISIBLE
+        binding.recyclerView.visibility = View.GONE
+
         viewLifecycleOwner.lifecycleScope.launchWhenCreated {
             viewModel.apply {
                 delay(1000)
@@ -52,14 +56,19 @@ class UserListFragment : Fragment(R.layout.fragment_user_list){
 
     private fun handleUsersUiState(uiState: UsersFragmentUIState){
         uiState.apply {
-            binding.recyclerView.layoutManager = LinearLayoutManager(context)
+            //binding.recyclerView.layoutManager = LinearLayoutManager(context)
 
-            binding.recyclerView.addItemDecoration(
-                DividerItemDecoration(
-                    binding.recyclerView.context,
-                    (binding.recyclerView.layoutManager as LinearLayoutManager).orientation
-                )
-            )
+            binding.recyclerView.layoutManager = GridLayoutManager(context,2)
+
+//            binding.recyclerView.addItemDecoration(
+//                DividerItemDecoration(
+//                    binding.recyclerView.context,
+//                    (binding.recyclerView.layoutManager as GridLayoutManager).orientation
+//                )
+//            )
+            binding.progressBar.visibility = View.GONE
+            binding.recyclerView.visibility = View.VISIBLE
+            adapter.submitList(uiState.usersDataModel)
             binding.recyclerView.adapter = adapter
         }
     }

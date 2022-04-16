@@ -6,5 +6,5 @@ import retrofit2.http.GET
 
 interface Apis {
     @GET("?results=10")
-    suspend fun getUsers(): Call<BaseUsersDataModel>
+    fun getUsers() : Call<BaseUsersDataModel>
 }
