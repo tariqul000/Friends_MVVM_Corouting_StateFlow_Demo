@@ -14,6 +14,10 @@
 - [okhttp-logging-interceptor](https://github.com/square/okhttp/blob/master/okhttp-logging-interceptor/README.md) - logs HTTP request and response data.
 - [kotlinx.coroutines](https://github.com/Kotlin/kotlinx.coroutines) - Library Support for coroutines,provides `runBlocking` coroutine builder used in tests
 for Android.
+  
+
+  # Core Feature
+![alt text](https://developer.android.com/topic/libraries/architecture/images/paging3-layered-architecture.svg)
 
 ## Architecture
 - MVVM Architecture (View - ViewBinding - ViewModel - Model)
