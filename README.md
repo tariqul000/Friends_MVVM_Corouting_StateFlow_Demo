@@ -17,7 +17,7 @@ for Android.
   
 
   # Core Feature
-![alt text](https://developer.android.com/topic/libraries/architecture/images/paging3-layered-architecture.svg)
+![alt text](https://github.com/tariqul000/Friends_MVVM_Corouting_StateFlow_Demo/blob/master/app/gif/projectreview.gif)
 
 ## Architecture
 - MVVM Architecture (View - ViewBinding - ViewModel - Model)
